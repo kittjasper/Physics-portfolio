@@ -23,7 +23,7 @@ profilePhoto.addEventListener('error', () => {
 });
 
 const savedPhoto = localStorage.getItem('portfolioPhoto');
-showProfilePhoto(savedPhoto || 'images/profile.jpg');
+showProfilePhoto(savedPhoto || '786778159_1782513092945835_2235052042153019872_n.jpg');
 
 const legacyContent = {
   futureRole: ['Environmental engineer', 'Engineer'],
