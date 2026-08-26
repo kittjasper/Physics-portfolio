@@ -14,10 +14,7 @@
     <div class="page-shell">
       <header class="topbar">
         <a class="wordmark" href="#top" aria-label="Back to top"><span class="wordmark-mark">+</span> portfolio<span class="wordmark-dot">.</span></a>
-        <div class="topbar-actions">
-          <span class="save-status" id="saveStatus" aria-live="polite">Changes saved locally</span>
-          <button class="edit-button" id="editButton" type="button"><span class="edit-icon">✎</span> Edit portfolio</button>
-        </div>
+        <div class="topbar-actions"><span class="save-status">portfolio / view only</span></div>
       </header>
 
       <main id="top">
@@ -28,15 +25,12 @@
             <p class="hero-description editable" data-key="intro">A curious mind exploring how science and technology can make everyday life more thoughtful, sustainable, and possible.</p>
             <div class="hero-actions">
               <a class="primary-link" href="#research">Explore my work <span>↘</span></a>
-              <button class="hero-edit-link" id="heroEditButton" type="button">Edit my details <span>✎</span></button>
               <a class="text-link" href="#about">About me</a>
             </div>
           </div>
           <div class="hero-card" aria-label="Personal profile details">
             <div class="card-topline"><span>01</span><span>profile snapshot</span></div>
-            <div class="profile-avatar" id="profileAvatar"><span id="photoFallback">KB</span><img id="profilePhoto" alt="Profile photo" /></div>
-            <label class="photo-upload" for="photoInput">Add your photo <span>+</span></label>
-            <input id="photoInput" type="file" accept="image/*" />
+            <div class="profile-avatar has-photo"><span id="photoFallback">KB</span><img src="786778159_1782513092945835_2235052042153019872_n.jpg" alt="Kitt Jasper B. Ferraren" /></div>
             <div class="profile-facts">
               <div class="fact"><span class="fact-label">Age</span><strong class="editable" data-key="age">17</strong></div>
               <div class="fact"><span class="fact-label">Based in</span><strong class="editable" data-key="location">Cebu City</strong></div>
@@ -99,7 +93,6 @@
       </main>
       <footer><span>© <span id="year"></span> <span class="editable" data-key="footerName">Kitt Jasper B. Ferraren</span></span><span>made with curiosity</span></footer>
     </div>
-    <div class="edit-hint" id="editHint" role="status">Click any highlighted text to edit it. Press Save when you’re done.</div>
     <script src="script.js?v=2"></script>
   </body>
 </html>
