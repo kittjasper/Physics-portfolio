@@ -5,7 +5,7 @@ const photoInput = document.querySelector('#photoInput');
 const profilePhoto = document.querySelector('#profilePhoto');
 const profileAvatar = document.querySelector('#profileAvatar');
 const editableElements = document.querySelectorAll('.editable');
-const portfolioContentVersion = '2026-08-26-kitt-jasper';
+const portfolioContentVersion = '2026-08-26-kitt-jasper-achievements';
 if (localStorage.getItem('portfolioContentVersion') !== portfolioContentVersion) {
   localStorage.removeItem('portfolioData');
   localStorage.setItem('portfolioContentVersion', portfolioContentVersion);
@@ -13,11 +13,17 @@ if (localStorage.getItem('portfolioContentVersion') !== portfolioContentVersion)
 const storedData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
 let editing = false;
 
-const savedPhoto = localStorage.getItem('portfolioPhoto');
-if (savedPhoto) {
-  profilePhoto.src = savedPhoto;
+function showProfilePhoto(source) {
+  profilePhoto.src = source;
   profileAvatar.classList.add('has-photo');
 }
+
+profilePhoto.addEventListener('error', () => {
+  profileAvatar.classList.remove('has-photo');
+});
+
+const savedPhoto = localStorage.getItem('portfolioPhoto');
+showProfilePhoto(savedPhoto || 'images/profile.jpg');
 
 const legacyContent = {
   futureRole: ['Environmental engineer', 'Engineer'],
@@ -81,8 +87,7 @@ photoInput.addEventListener('change', () => {
   if (!file) return;
   const reader = new FileReader();
   reader.addEventListener('load', () => {
-    profilePhoto.src = reader.result;
-    profileAvatar.classList.add('has-photo');
+    showProfilePhoto(reader.result);
     localStorage.setItem('portfolioPhoto', reader.result);
     setStatus('Photo saved locally');
   });
