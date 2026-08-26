@@ -5,6 +5,11 @@ const photoInput = document.querySelector('#photoInput');
 const profilePhoto = document.querySelector('#profilePhoto');
 const profileAvatar = document.querySelector('#profileAvatar');
 const editableElements = document.querySelectorAll('.editable');
+const portfolioContentVersion = '2026-08-26-kitt-jasper';
+if (localStorage.getItem('portfolioContentVersion') !== portfolioContentVersion) {
+  localStorage.removeItem('portfolioData');
+  localStorage.setItem('portfolioContentVersion', portfolioContentVersion);
+}
 const storedData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
 let editing = false;
 
