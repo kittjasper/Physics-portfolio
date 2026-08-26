@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f2ec" />
+    <title>My Digital Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="#top" aria-label="Back to top"><span class="wordmark-mark">+</span> portfolio<span class="wordmark-dot">.</span></a>
+        <div class="topbar-actions">
+          <span class="save-status" id="saveStatus" aria-live="polite">Changes saved locally</span>
+          <button class="edit-button" id="editButton" type="button"><span class="edit-icon">✎</span> Edit portfolio</button>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="intro-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> digital portfolio / 2026</p>
+            <h1 id="intro-title">Hello, I’m <span class="editable" data-key="name">Your Name</span><span class="headline-period">.</span></h1>
+            <p class="hero-description editable" data-key="intro">A curious mind exploring how science and technology can make everyday life more thoughtful, sustainable, and possible.</p>
+            <div class="hero-actions">
+              <a class="primary-link" href="#research">Explore my work <span>↘</span></a>
+              <button class="hero-edit-link" id="heroEditButton" type="button">Edit my details <span>✎</span></button>
+              <a class="text-link" href="#about">About me</a>
+            </div>
+          </div>
+          <div class="hero-card" aria-label="Personal profile details">
+            <div class="card-topline"><span>01</span><span>profile snapshot</span></div>
+            <div class="profile-avatar" id="profileAvatar"><span id="photoFallback">YN</span><img id="profilePhoto" alt="Profile photo" /></div>
+            <label class="photo-upload" for="photoInput">Add your photo <span>+</span></label>
+            <input id="photoInput" type="file" accept="image/*" />
+            <div class="profile-facts">
+              <div class="fact"><span class="fact-label">Age</span><strong class="editable" data-key="age">16</strong></div>
+              <div class="fact"><span class="fact-label">Based in</span><strong class="editable" data-key="location">Your city</strong></div>
+              <div class="fact"><span class="fact-label">Future role</span><strong class="editable" data-key="futureRole">Engineer</strong></div>
+            </div>
+            <div class="card-footer"><span>currently learning</span><span class="status-dot"></span></div>
+          </div>
+        </section>
+
+        <div class="marquee" aria-label="Portfolio themes">
+          <div class="marquee-track">
+            <div class="marquee-set"><span>design with purpose</span><b>✦</b><span>curiosity becomes action</span><b>✦</b><span>build better futures</span><b>✦</b><span>always keep learning</span><b>✦</b></div>
+            <div class="marquee-set" aria-hidden="true"><span>design with purpose</span><b>✦</b><span>curiosity becomes action</span><b>✦</b><span>build better futures</span><b>✦</b><span>always keep learning</span><b>✦</b></div>
+          </div>
+        </div>
+
+        <section class="about-section section-grid" id="about" aria-labelledby="about-title">
+          <div class="section-heading"><p class="section-number">02 / about</p><h2 id="about-title">The person<br /><em>behind the work.</em></h2></div>
+          <div class="about-content">
+            <p class="large-copy editable" data-key="about">I’m a student who likes asking better questions. I’m drawn to the space where careful research meets useful action, and I’m always looking for the next idea worth testing.</p>
+            <div class="info-pairs">
+              <div><span class="label">My STEM field</span><p class="editable" data-key="stemField">Engineering</p></div>
+              <div><span class="label">A value I bring</span><p class="editable" data-key="value">Curiosity with purpose</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="journey-section section-grid" id="journey" aria-labelledby="journey-title">
+          <div class="section-heading"><p class="section-number">03 / journey</p><h2 id="journey-title">What I’ve<br /><em>been learning.</em></h2></div>
+          <div class="timeline-content">
+            <article class="timeline-item"><div class="timeline-marker">A</div><div><p class="timeline-meta">educational background</p><h3 class="editable" data-key="educationTitle">Your school or program</h3><p class="muted editable" data-key="educationDetails">Add your grade level, strand, favorite subjects, or any learning experience that shaped you.</p></div></article>
+            <article class="timeline-item"><div class="timeline-marker">B</div><div><p class="timeline-meta">chosen STEM field</p><h3 class="editable" data-key="stemTitle">Engineering</h3><p class="muted editable" data-key="stemDetails">I want to understand how systems work and design practical solutions to real-world problems.</p></div></article>
+          </div>
+        </section>
+
+        <section class="achievement-section section-grid" id="achievements" aria-labelledby="achievements-title">
+          <div class="section-heading"><p class="section-number">04 / highlights</p><h2 id="achievements-title">Small wins,<br /><em>real momentum.</em></h2></div>
+          <div class="achievement-list">
+            <div class="achievement-row"><span class="achievement-year editable" data-key="achievementYear1">2025</span><strong class="editable" data-key="achievement1">Add an achievement</strong><span class="arrow">↗</span></div>
+            <div class="achievement-row"><span class="achievement-year editable" data-key="achievementYear2">2024</span><strong class="editable" data-key="achievement2">Add a competition, project, or recognition</strong><span class="arrow">↗</span></div>
+            <div class="achievement-row"><span class="achievement-year editable" data-key="achievementYear3">2023</span><strong class="editable" data-key="achievement3">Add a milestone you’re proud of</strong><span class="arrow">↗</span></div>
+          </div>
+        </section>
+
+        <section class="research-section" id="research" aria-labelledby="research-title">
+          <div class="research-header"><div><p class="section-number">05 / chosen research</p><h2 id="research-title">A question worth<br /><em>following.</em></h2></div><span class="research-index">01</span></div>
+          <div class="research-body"><div class="research-label">Research focus</div><div><h3 class="editable" data-key="researchTitle">How can engineering make our communities more sustainable?</h3><p class="research-description editable" data-key="researchDetails">Write about the engineering question you chose, why it matters to you, and what you hope to discover. This is your space to let the work speak.</p><div class="research-tags"><span class="editable" data-key="researchTag1">investigation</span><span class="editable" data-key="researchTag2">impact</span><span class="editable" data-key="researchTag3">future</span></div></div></div>
+        </section>
+
+        <section class="projects-section" id="projects" aria-labelledby="projects-title">
+          <div class="projects-header"><div><p class="section-number">06 / digital projects</p><h2 id="projects-title">Things I’ve<br /><em>made and tested.</em></h2></div><p class="projects-note">Paste your project links below<br />to build your own collection.</p></div>
+          <div class="project-grid">
+            <article class="project-card project-card-lime"><div class="project-topline"><span>project / 01</span><span>↗</span></div><h3 class="editable" data-key="projectTitle1">Your first project</h3><p class="editable" data-key="projectDetails1">Describe what you built, designed, or explored.</p><a class="project-link" data-url-key="projectUrl1" href="#" target="_blank" rel="noreferrer"><span class="editable" data-key="projectUrl1">Paste project link</span> <span>↗</span></a></article>
+            <article class="project-card project-card-blue"><div class="project-topline"><span>project / 02</span><span>↗</span></div><h3 class="editable" data-key="projectTitle2">Your second project</h3><p class="editable" data-key="projectDetails2">Add a short note about the problem you solved.</p><a class="project-link" data-url-key="projectUrl2" href="#" target="_blank" rel="noreferrer"><span class="editable" data-key="projectUrl2">Paste project link</span> <span>↗</span></a></article>
+            <article class="project-card project-card-coral"><div class="project-topline"><span>project / 03</span><span>↗</span></div><h3 class="editable" data-key="projectTitle3">Your third project</h3><p class="editable" data-key="projectDetails3">Show another digital project you’re proud of.</p><a class="project-link" data-url-key="projectUrl3" href="#" target="_blank" rel="noreferrer"><span class="editable" data-key="projectUrl3">Paste project link</span> <span>↗</span></a></article>
+          </div>
+        </section>
+
+        <section class="closing-section"><p class="eyebrow"><span class="eyebrow-line"></span> keep exploring</p><p class="closing-copy editable" data-key="closing">The best work starts with a question.</p><a class="primary-link" href="#top">Back to top <span>↑</span></a></section>
+      </main>
+      <footer><span>© <span id="year"></span> <span class="editable" data-key="footerName">Your Name</span></span><span>made with curiosity</span></footer>
+    </div>
+    <div class="edit-hint" id="editHint" role="status">Click any highlighted text to edit it. Press Save when you’re done.</div>
+    <script src="script.js"></script>
+  </body>
+</html>
