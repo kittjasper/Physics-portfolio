@@ -12,6 +12,7 @@ if (localStorage.getItem('portfolioContentVersion') !== portfolioContentVersion)
 }
 const storedData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
 let editing = false;
+const publicProfilePhoto = '786778159_1782513092945835_2235052042153019872_n.jpg';
 
 function showProfilePhoto(source) {
   profilePhoto.src = source;
@@ -19,11 +20,15 @@ function showProfilePhoto(source) {
 }
 
 profilePhoto.addEventListener('error', () => {
-  profileAvatar.classList.remove('has-photo');
+  if (profilePhoto.getAttribute('src') !== publicProfilePhoto) {
+    showProfilePhoto(publicProfilePhoto);
+  } else {
+    profileAvatar.classList.remove('has-photo');
+  }
 });
 
 const savedPhoto = localStorage.getItem('portfolioPhoto');
-showProfilePhoto(savedPhoto || '786778159_1782513092945835_2235052042153019872_n.jpg');
+showProfilePhoto(savedPhoto || publicProfilePhoto);
 
 const legacyContent = {
   futureRole: ['Environmental engineer', 'Engineer'],
