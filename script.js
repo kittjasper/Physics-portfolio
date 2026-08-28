@@ -6,7 +6,29 @@ function updateProjectLinks() {
   });
 }
 
+function updateProjectOverviews() {
+  const knownOverviews = {
+    'physics-group-task-1-or-something-': 'A digital physics portfolio documenting the measurement and density experiment.'
+  };
+
+  document.querySelectorAll('.project-card').forEach((card) => {
+    const link = card.querySelector('.project-link');
+    const details = card.querySelector('[data-key^="projectDetails"]');
+    const urlElement = link && card.querySelector(`[data-key="${link.dataset.urlKey}"]`);
+
+    if (!link || !details || !urlElement || details.textContent.trim() || !/^https?:\/\//i.test(urlElement.textContent.trim())) {
+      return;
+    }
+
+    const url = new URL(urlElement.textContent.trim());
+    const projectKey = url.pathname.split('/').filter(Boolean).pop().toLowerCase();
+    details.textContent = knownOverviews[projectKey] || `A digital project published on ${url.hostname}.`;
+    details.dataset.generated = 'true';
+  });
+}
+
 updateProjectLinks();
+updateProjectOverviews();
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 
