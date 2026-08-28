@@ -12,23 +12,19 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 
 const profileWindow = document.querySelector('.hero-card');
 const profileReopen = document.querySelector('.profile-reopen');
-const profileMinimize = document.querySelector('[data-window-action="minimize"]');
+const profileEnlarge = document.querySelector('[data-window-action="enlarge"]');
 
 document.querySelectorAll('[data-window-action]').forEach((control) => {
   control.addEventListener('click', () => {
     const action = control.dataset.windowAction;
 
     if (action === 'minimize') {
-      profileWindow.classList.toggle('is-enlarged');
-      control.setAttribute('aria-label', profileWindow.classList.contains('is-enlarged') ? 'Restore profile snapshot size' : 'Enlarge profile snapshot');
-      control.setAttribute('title', profileWindow.classList.contains('is-enlarged') ? 'Restore size' : 'Enlarge');
+      profileWindow.classList.add('is-minimized');
       return;
     }
 
-    if (action === 'hide') {
-      profileWindow.classList.add('is-minimized');
-      profileMinimize.disabled = true;
-      profileMinimize.setAttribute('aria-disabled', 'true');
+    if (action === 'enlarge') {
+      profileWindow.classList.remove('is-minimized');
       return;
     }
 
@@ -44,14 +40,10 @@ document.querySelectorAll('[data-window-action]').forEach((control) => {
 profileWindow.addEventListener('click', (event) => {
   if (profileWindow.classList.contains('is-minimized') && !event.target.closest('button')) {
     profileWindow.classList.remove('is-minimized');
-    profileMinimize.disabled = false;
-    profileMinimize.setAttribute('aria-disabled', 'false');
   }
 });
 
 profileReopen.addEventListener('click', () => {
   profileWindow.classList.remove('is-hidden', 'is-minimized', 'is-enlarged');
-  profileMinimize.disabled = false;
-  profileMinimize.setAttribute('aria-disabled', 'false');
   profileReopen.classList.remove('is-visible');
 });
