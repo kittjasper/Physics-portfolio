@@ -12,6 +12,7 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 
 const profileWindow = document.querySelector('.hero-card');
 const profileReopen = document.querySelector('.profile-reopen');
+const profileMinimize = document.querySelector('[data-window-action="minimize"]');
 
 document.querySelectorAll('[data-window-action]').forEach((control) => {
   control.addEventListener('click', () => {
@@ -26,15 +27,31 @@ document.querySelectorAll('[data-window-action]').forEach((control) => {
 
     if (action === 'hide') {
       profileWindow.classList.add('is-minimized');
+      profileMinimize.disabled = true;
+      profileMinimize.setAttribute('aria-disabled', 'true');
       return;
     }
 
-    profileWindow.classList.add('is-hidden');
-    profileReopen.classList.add('is-visible');
+    profileWindow.classList.add('is-closing');
+    window.setTimeout(() => {
+      profileWindow.classList.remove('is-closing');
+      profileWindow.classList.add('is-hidden');
+      profileReopen.classList.add('is-visible');
+    }, 320);
   });
+});
+
+profileWindow.addEventListener('click', (event) => {
+  if (profileWindow.classList.contains('is-minimized') && !event.target.closest('button')) {
+    profileWindow.classList.remove('is-minimized');
+    profileMinimize.disabled = false;
+    profileMinimize.setAttribute('aria-disabled', 'false');
+  }
 });
 
 profileReopen.addEventListener('click', () => {
   profileWindow.classList.remove('is-hidden', 'is-minimized', 'is-enlarged');
+  profileMinimize.disabled = false;
+  profileMinimize.setAttribute('aria-disabled', 'false');
   profileReopen.classList.remove('is-visible');
 });
