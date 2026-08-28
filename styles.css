@@ -1,3 +1,9 @@
+.window-controls { right:18px; left:auto; transform:none; }
+.window-control-hide,.window-control-minimize { position:static; transform:none; }
+.window-control-minimize:hover,.window-control-minimize:focus-visible { transform:translateY(-1px); }
+.project-window-controls { display:flex; align-items:center; gap:4px; margin-left:auto; }
+.project-window-controls i { display:block; width:7px; height:7px; border:1px solid rgba(23,35,33,.5); border-radius:50%; background:rgba(255,255,255,.35); }
+.project-card-coral .project-window-controls i { border-color:rgba(255,248,240,.65); background:rgba(255,248,240,.3); }
 :root { --ink:#eefbff; --muted:#9dbbc2; --paper:#071014; --line:#23444e; --lime:#d7f45c; --coral:#ff806d; --blue:#16c9f4; --mono:'DM Mono', monospace; --sans:'Manrope', sans-serif; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
