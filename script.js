@@ -18,8 +18,14 @@ document.querySelectorAll('[data-window-action]').forEach((control) => {
     const action = control.dataset.windowAction;
 
     if (action === 'minimize') {
-      profileWindow.classList.toggle('is-minimized');
-      control.setAttribute('aria-label', profileWindow.classList.contains('is-minimized') ? 'Restore profile snapshot' : 'Minimize profile snapshot');
+      profileWindow.classList.toggle('is-enlarged');
+      control.setAttribute('aria-label', profileWindow.classList.contains('is-enlarged') ? 'Restore profile snapshot size' : 'Enlarge profile snapshot');
+      control.setAttribute('title', profileWindow.classList.contains('is-enlarged') ? 'Restore size' : 'Enlarge');
+      return;
+    }
+
+    if (action === 'hide') {
+      profileWindow.classList.add('is-minimized');
       return;
     }
 
@@ -29,6 +35,6 @@ document.querySelectorAll('[data-window-action]').forEach((control) => {
 });
 
 profileReopen.addEventListener('click', () => {
-  profileWindow.classList.remove('is-hidden', 'is-minimized');
+  profileWindow.classList.remove('is-hidden', 'is-minimized', 'is-enlarged');
   profileReopen.classList.remove('is-visible');
 });
